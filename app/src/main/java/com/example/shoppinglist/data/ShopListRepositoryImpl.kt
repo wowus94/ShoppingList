@@ -35,5 +35,4 @@ object ShopListRepositoryImpl : ShopListRepository {
     override fun getShopList(): List<ShopItem> {
         return shopList.toList()
     }
-
 }
