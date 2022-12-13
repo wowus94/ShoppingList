@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
     private fun showList(list: List<ShopItem>) {
         linearLayoutShopList.removeAllViews()
         for (shopItem in list) {
