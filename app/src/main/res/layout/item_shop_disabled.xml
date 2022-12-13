@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/card_view_margin_start_8dp"
+    android:layout_marginTop="@dimen/card_view_margin_top_4dp"
+    android:layout_marginEnd="@dimen/card_view_margin_end_8dp"
+    android:layout_marginBottom="@dimen/card_view_margin_bottom_4dp"
+    app:cardCornerRadius="@dimen/card_view_corner_radius_4dp"
+    app:cardElevation="@dimen/card_view_elevation_1dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/card_view_background_disabled"
+        android:orientation="horizontal"
+        android:padding="@dimen/card_view_padding_16dp">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_card_view_16sp"
+            android:textStyle="bold"
+            tools:text="@string/text_sample" />
+
+        <TextView
+            android:id="@+id/tv_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_card_view_16sp"
+            android:textStyle="bold"
+            tools:text="@string/text_sample_amount" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

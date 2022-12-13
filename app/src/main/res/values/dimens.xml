@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="float_bt_marginEnd">16dp</dimen>
+    <dimen name="float_bt_marginBottom">16dp</dimen>
+    <dimen name="recyclerView_width">0dp</dimen>
+    <dimen name="recyclerView_height">0dp</dimen>
+    <dimen name="card_view_margin_start_8dp">8dp</dimen>
+    <dimen name="card_view_margin_top_4dp">4dp</dimen>
+    <dimen name="card_view_margin_end_8dp">8dp</dimen>
+    <dimen name="card_view_margin_bottom_4dp">4dp</dimen>
+    <dimen name="card_view_corner_radius_4dp">4dp</dimen>
+    <dimen name="card_view_elevation_1dp">1dp</dimen>
+    <dimen name="card_view_elevation_4dp">1dp</dimen>
+    <dimen name="card_view_padding_16dp">16dp</dimen>
+    <dimen name="text_size_card_view_16sp">16sp</dimen>
+</resources>
