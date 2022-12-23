@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shoppinglist.R
 import com.example.shoppinglist.domain.ShopItem
@@ -15,9 +16,14 @@ class ShopListAdapter : RecyclerView.Adapter<ShopListAdapter.ShopItemViewHolder>
     var count = 0
     var shopList = listOf<ShopItem>()
         set(value) {
+            val callback = ShopListDiffCallback(shopList, value)
+            val diffResult = DiffUtil.calculateDiff(callback)
+            diffResult.dispatchUpdatesTo(this)
             field = value
-            notifyDataSetChanged()
         }
+
+    var onShopItemLongClickListener: ((ShopItem) -> Unit)? = null
+    var onShopItemClickListener: ((ShopItem) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShopItemViewHolder {
         Log.d("@@@", "onCreateViewHolder, count: ${++count}")
@@ -33,10 +39,26 @@ class ShopListAdapter : RecyclerView.Adapter<ShopListAdapter.ShopItemViewHolder>
     override fun onBindViewHolder(viewHolder: ShopItemViewHolder, position: Int) {
         val shopItem = shopList[position]
         viewHolder.view.setOnLongClickListener {
+            onShopItemLongClickListener?.invoke(shopItem)
             true
         }
-        viewHolder.textViewName.text = "${shopItem.name}"
+        viewHolder.view.setOnClickListener {
+            onShopItemClickListener?.invoke(shopItem)
+        }
+        viewHolder.textViewName.text = shopItem.name
         viewHolder.textViewCount.text = shopItem.count.toString()
+    }
+
+    override fun onViewRecycled(viewHolder: ShopItemViewHolder) {
+        super.onViewRecycled(viewHolder)
+        viewHolder.textViewName.text = ""
+        viewHolder.textViewCount.text = ""
+        viewHolder.textViewName.setTextColor(
+            ContextCompat.getColor(
+                viewHolder.view.context,
+                android.R.color.white
+            )
+        )
     }
 
     override fun getItemCount(): Int {
@@ -55,6 +77,10 @@ class ShopListAdapter : RecyclerView.Adapter<ShopListAdapter.ShopItemViewHolder>
     class ShopItemViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val textViewName: TextView = view.findViewById(R.id.tv_name)
         val textViewCount: TextView = view.findViewById(R.id.tv_count)
+    }
+
+    interface OnShopItemLongClickListener {
+        fun onShopItemLongClick(shopItem: ShopItem)
     }
 
     companion object {
