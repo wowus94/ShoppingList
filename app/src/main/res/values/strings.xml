@@ -3,4 +3,7 @@
     <string name="add_shop_item_content_description">Add new shop item</string>
     <string name="text_sample">Sample...</string>
     <string name="text_sample_amount">***</string>
+    <string name="edit_text_hint_name">Name:</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_count">Count:</string>
 </resources>
