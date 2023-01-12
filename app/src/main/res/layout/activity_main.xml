@@ -10,6 +10,7 @@
         android:id="@+id/rv_shop_list"
         android:layout_width="@dimen/recyclerView_width"
         android:layout_height="@dimen/recyclerView_height"
+        android:background="@color/background"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
